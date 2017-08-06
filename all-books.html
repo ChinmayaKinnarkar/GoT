@@ -1,0 +1,58 @@
+<h1 style="color:white; text-align: center;">: All Books Details :</h1>
+<br/>
+<p>:Click on the Book Name to know the details of the Book:</p>
+<p>: In Order to sort in reverse or Forward click on the Headings :</p>
+<p>Search Using Publisher:&nbsp;<input style="color:black" type="text" ng-model="publisher"></p>
+<p>Search using Release date:&nbsp;<input style="color:black" type="text" ng-model="release"></p>
+<p>To know more about Books Please Click on Book Name: </p>
+<table class="table">
+    <tr>
+        <th><a ng-click="sortType = 'name'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name
+		            <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+		</th>
+		<th><a  ng-click="sortType = 'publisher'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Publisher
+		<span ng-show="sortType == 'publisher' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'publisher' && sortReverse" class="fa fa-caret-up"></span>
+		</th>
+		<th><a  ng-click="sortType = 'released'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Released Date
+		<span ng-show="sortType == 'released' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'released' && sortReverse" class="fa fa-caret-up"></span>
+		</th>
+	</tr>
+	<tr ng-repeat="all in mainCtrl.AllBooks | limitTo : 10 : 0 | orderBy:sortType:sortReverse | filter : {publisher : publisher} | filter : {released : release}">
+	<td ng-click="myBook(all.url)" data-title="'Date'" data-toggle="modal" data-target="#myModal">{{all.name}}
+		</td>
+		<td>{{all.publisher}}
+		</a></td>
+		<td>{{all.released}}
+		</a></td>
+	</tr>
+</table>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div  class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 style="color:black" align="center">Book Details</h3>
+      </div>
+      <div class="modal-body">
+        <p style="color:black"><strong>Book Name:</strong> {{bookName}}</p>
+          <p style="color:black"><strong>Author Name:</strong> {{authorName}}</p>
+          <p style="color:black"><strong>ISBN: </strong>{{isbn}}</p>
+          <p style="color:black"><strong>Publisher:</strong> {{publishers}}</p>
+          <p style="color:black"><strong>Number Of Pages:</strong> {{page}}</p>
+          <p style="color:black"><strong>Media Type:</strong> {{media}}</p>
+          <p style="color:black"><strong>Released Date:</strong> {{releasedDate}}</p>
+          <p style="color:black"><strong>Country:</strong> {{country}}</p>
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

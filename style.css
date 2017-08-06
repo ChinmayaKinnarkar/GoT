@@ -1,0 +1,213 @@
+body {
+    font-family: Lora, 'Times New Roman', serif;
+    font-size: 3vmin;
+    color: black;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(26, 26, 26);
+
+  }
+  .mainMagic{
+    padding-top: 3%;
+  }
+  .notFound {
+    padding: 8%;
+    text-align: center;
+}
+
+
+.magicBox a{
+    color: inherit; /* for links */
+    text-decoration: inherit; /* no underline */
+}
+.magicBox{
+  /* background-image: url('game-of-thrones.jpg'); */
+  margin: 3%;
+  padding: 2%;
+
+}
+
+/* grid start */
+/* box for books start */
+.box1 h3{
+  text-align:center;
+	position:relative;
+	top:10px;
+}
+.box1 p{
+  text-align:center;
+	position:relative;
+	top:15px;
+}
+.box1 {
+	width:80%;
+	min-height:200px;
+	background:rgb(250,200,50);
+	margin:40px auto;
+  padding: 5px;
+  color: black;
+}
+.box1:hover, .box2:hover, .box3:hover {
+border-bottom: 10px solid red;
+border-top: 10px solid red;
+border-radius: 10%;
+}
+
+
+/* box for books end */
+
+/* box for houses start */
+.box2 h3{
+  text-align:center;
+	position:relative;
+	top:20px;
+}
+.box2 p{
+  text-align:center;
+	position:relative;
+	top:30px;
+}
+.box2 {
+	width:80%;
+	min-height:300px;
+	background:rgb(250,200,50);
+	margin:40px auto;
+  padding: 5px;
+  color: black;
+}
+/* box for houses end */
+
+/* box for characters start */
+.box3 h3{
+  text-align:center;
+	position:relative;
+	top:10px;
+}
+.box3 p{
+  text-align:center;
+	position:relative;
+	top:20px;
+}
+.box3 {
+	width:80%;
+	min-height:200px;
+	background:rgb(250,200,50);
+	margin:40px auto;
+  padding: 5px;
+}
+/* box for characters end */
+
+
+/*==================================================
+ * Effect
+ * ===============================================*/
+.effect
+{
+  	position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect:before, .effect:after
+{
+	content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect:after
+{
+	right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+/* grid end */
+.appSection {
+    border: 5px;
+    background-color: white;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding: 2%;
+    box-shadow: 10px 10px 5px #888;
+    /* border-radius: 3%; */
+
+
+}
+.btn-block{
+  margin:  5px;
+  color:black;
+background-color:rgb(250,200,50);
+}
+.btn-danger{
+    color: black;
+    background-color:#fac832;
+    border-color: #f7db04;
+}
+.footer {
+    padding: 20px;
+	margin-top: 20px;
+	background-color: rgb(250, 200, 50);
+	text-align: center;
+	color: black;
+}
+
+
+/*header*/
+#hero{
+  background-image:url("../banner.jpg");
+  background-size:cover;
+  position:relative;
+  height:80vh;
+  width: 100%;
+  background-repeat:no-repeat;
+ background-position:center;
+}
+
+.header{
+  position:absolute;
+  top:50%;
+  text-align:center;
+  width:100%;
+  color:#fff;
+  -ms-transform: translate(0,-50%); /* IE 9 */
+    -webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);
+
+}
+.h1style{
+  display: inline-block;
+  background-color: rgba(255,200,50,0.7);
+  font-size: 300%;
+  font-weight: bold;
+  font-family: Lora, monospace, serif;
+  color: white;
+  padding: 1%;
+
+}
+.p1style{
+  display: inline-block;
+  background-color: rgba(255,200,50,0.7);
+  font-size: 150%;
+  font-weight: bold;
+  font-family: Lora, monospace, serif;
+  color: white;
+  padding: 1%;
+}
+.h2style{
+  text-align: center;
+  font-weight: bold;
+  color: rgb(250,200,50);
+}

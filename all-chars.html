@@ -1,0 +1,59 @@
+<h3 style="color:white; text-align: center;">: All Characters Details :</h3>
+<br/>
+<p>:Click on the Character Name to know the details of Character:</p>
+<p>: In Order to sort in reverse or Forward click on the Headings :</p>
+<p>Search Using Alias:&nbsp;<input style="color:black" type="text" ng-model="aliases"></p>
+<p>To know more about Books Please Click on Alias Name: </p>
+<table class="table">
+    <tr>
+        <th><a ng-click="sortType = 'name'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name
+                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th><a  ng-click="sortType = 'gender'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender
+        <span ng-show="sortType == 'gender' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'gender' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+        <th><a  ng-click="sortType = 'aliases'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aliases
+        <span ng-show="sortType == 'aliases' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'aliases' && sortReverse" class="fa fa-caret-up"></span>
+        </th>
+    </tr>
+    <tr ng-repeat="all in mainCtrl.AllChars | orderBy:sortType:sortReverse | filter : {aliases : aliases}">
+    <td ng-click="myChar(all.url)" data-title="'Date'" data-toggle="modal" data-target="#myModal2">{{all.name}}
+        </td>
+        <td ng-click="myChar(all.url)" data-title="'Date'" data-toggle="modal" data-target="#myModal2">{{all.gender}}
+        </td>
+        <td ng-click="myChar(all.url)" data-title="'Date'" data-toggle="modal" data-target="#myModal2">{{all.aliases}}
+        </td>
+        
+    </tr>
+</table>
+
+
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div  class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 style="color:black" align="center">Book Details</h3>
+      </div>
+      <div class="modal-body">
+        <p style="color:black"><strong>Character Name:</strong> {{charName}}</p>
+        <p style="color:black"><strong>Gender: </strong> {{gender}}</p>
+          <p style="color:black"><strong>Born: </strong> {{born}}</p>
+          <p style="color:black"><strong>Culture: </strong>{{culture}}</p>
+          <p style="color:black"><strong>Alias: </strong> {{aliases}}</p>
+          <p style="color:black"><strong>Father:</strong> {{father}}</p>
+          <p style="color:black"><strong>Mother:</strong> {{mother}}</p>
+         
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

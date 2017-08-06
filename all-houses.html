@@ -1,0 +1,63 @@
+<h3>Details of the Houses:</h3>
+<p>Click on Any house to know the details of the House Names</p>
+<p>Search Using House Name:&nbsp;<input style="color:black" type="text" ng-model="name"></p>
+<p>Search using Region:&nbsp;<input style="color:black" type="text" ng-model="region"></p>
+<p> : In Order to sort in reverse or Forward click on the Headings :</p>
+<p><a ng-click="sortType = 'name'; sortReverse = !sortReverse">Name
+		            <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+            </a> &nbsp;&nbsp;
+    <a ng-click="sortType = 'region'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region
+		            <span ng-show="sortType == 'region' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'region' && sortReverse" class="fa fa-caret-up"></span></a> &nbsp;&nbsp;
+    <a ng-click="sortType = 'words'; sortReverse = !sortReverse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Words
+		            <span ng-show="sortType == 'words' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'words' && sortReverse" class="fa fa-caret-up"></span></a>
+</p>
+
+<div ng-repeat="all in mainCtrl.AllHouses |limitTo : 9 : 0| orderBy:sortType:sortReverse | filter : {name : name} | filter : {region : region}">
+    <!-- item -->
+    <div class="col-xs-4 text-center">
+        <div class="panel panel-danger panel-pricing">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body text-center">
+                <p ng-click="myHouse(all.url)" data-title="'Date'" data-toggle="modal" data-target="#myModal1"><strong>{{all.name}}</strong></p>
+            </div>
+            <ul class="list-group text-center">
+                <li class="list-group-item"><strong>Region:</strong> {{all.region}}</li>
+                <li class="list-group-item"><strong>Words:</strong> {{all.words}}</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /item -->
+</div>
+
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div  class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 style="color:black" align="center">House Details</h3>
+      </div>
+      <div class="modal-body">
+        <p style="color:black"><strong>House Name:</strong> {{houseName}}</p>
+          <p style="color:black"><strong>Region</strong> {{region}}</p>
+          <p style="color:black"><strong>Coat Of Arms</strong> {{coatOfArms}}</p>
+          <p style="color:black"><strong>words:</strong> {{words}}</p>
+          <p style="color:black"><strong>Title: </strong>{{titles}}</p>
+          <p style="color:black"><strong>Seats: </strong>{{seats}}</p>
+          <p style="color:black"><strong>Hiers:</strong> {{heir}}</p>
+          <p style="color:black"><strong>Founded: </strong>{{founded}}</p>
+          <p style="color:black"><strong>Founder: </strong>{{founder}}</p>          
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
